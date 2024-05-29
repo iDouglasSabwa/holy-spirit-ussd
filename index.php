@@ -1,8 +1,6 @@
 <?php
 // Step 1: Connect to the database
-$dsn = 'mysql:host=localhost;dbname=school_database';
-$username = 'username';
-$password = 'password';
+include 'config.php';
 
 try {
     $pdo = new PDO($dsn, $username, $password);
