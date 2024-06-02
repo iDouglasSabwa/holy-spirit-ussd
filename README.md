@@ -1,1 +1,1 @@
-USSD app with the attributes of the Holy Spirit
+Dynamic USSD app with the attributes of the Holy Spirit
