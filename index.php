@@ -13,6 +13,10 @@ $text = $_POST['text'];
 // Step 1: Connect to the database
 include 'config.php';
 
+$response = "CON Holy Spirit:\n";
+$response .= "1. Fruits \n";
+$response .= "2. Gifts \n";
+
 try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -32,15 +36,13 @@ try {
     foreach ($stmt as $key => $value) {
         // code...
         $id = $value['id'];
-        $reference = $value['reference'];
-    }
+        $attribute = $value['attribute'];
+        //Set default number value
+        $number = 1;
 
-    
-
-
-
-
-
+        //Display responses from db
+       $response .= $number++ . ". $attribute\n";
+    } 
 
 // Close the connection
 $pdo = null;
