@@ -1,4 +1,15 @@
 <?php
+
+//Echo response back to the API
+header('Content-type: text/plain');
+
+//Read POST variables from the API
+$sessionId = $_POST['sessionId'];
+$networkCode = $_POST['networkCode'];
+$serviceCode = $_POST['serviceCode'];
+$phoneNumber = ltrim($_POST['phoneNumber']);
+$text = $_POST['text'];
+
 // Step 1: Connect to the database
 include 'config.php';
 
@@ -7,23 +18,29 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Step 2: Prepare the SQL statement
-    $sql = "SELECT student_id, student_name FROM class WHERE class_name = :class_name";
+    $sql = "SELECT id, attribute FROM holy_spirit WHERE category = :category";
     $stmt = $pdo->prepare($sql);
 
     // Step 3: Bind parameters
-    $class_name = 'Math';
-    $stmt->bindParam(':class_name', $class_name, PDO::PARAM_STR);
+    $category = $text;
+    $stmt->bindParam(':category', $category, PDO::PARAM_STR);
 
     // Step 4: Execute the statement
     $stmt->execute();
 
     // Step 5: Fetch the results
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "Student ID: " . $row['student_id'] . " - Name: " . $row['student_name'] . "\n";
+    foreach ($stmt as $key => $value) {
+        // code...
+        $id = $value['id'];
+        $reference = $value['reference'];
     }
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
+
+    
+
+
+
+
+
 
 // Close the connection
 $pdo = null;
