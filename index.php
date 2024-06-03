@@ -44,6 +44,9 @@ try {
        $response .= $number++ . ". $attribute\n";
     } 
 }
+catch (PDOException $e) {
+echo "Error: " . $e->getMessage();
+}
 
 // Close the connection
 $pdo = null;
