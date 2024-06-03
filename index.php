@@ -43,6 +43,7 @@ try {
         //Display responses from db
        $response .= $number++ . ". $attribute\n";
     } 
+}
 
 // Close the connection
 $pdo = null;
