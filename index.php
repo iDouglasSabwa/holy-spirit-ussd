@@ -4,19 +4,21 @@
 header('Content-type: text/plain');
 
 //Read POST variables from the API
-$sessionId = $_POST['sessionId'];
-$networkCode = $_POST['networkCode'];
+$sesssionid = $_POST['sessionid'];
 $serviceCode = $_POST['serviceCode'];
-$phoneNumber = ltrim($_POST['phoneNumber']);
+$phoneNumber = ($_POST['phoneNumber']);
 $text = $_POST['text'];
 
-// Step 1: Connect to the database
+//Display default menu
+if ($text == "") {
+    // code...
+    $response = "CON Holy Spirit:\n";
+    $response .= "1. Fruits \n";
+    $response .= "2. Gifts \n";
+} else {
+    
+// Step 2: Connect to the database
 include 'config.php';
-
-$response = "CON Holy Spirit:\n";
-$response .= "1. Fruits \n";
-$response .= "2. Gifts \n";
-
 try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -44,8 +46,9 @@ try {
        $response .= $number++ . ". $attribute\n";
     } 
 }
-catch (PDOException $e) {
-echo "Error: " . $e->getMessage();
+    catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    }
 }
 
 // Close the connection
