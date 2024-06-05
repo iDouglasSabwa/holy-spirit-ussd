@@ -14,12 +14,14 @@ if ($text == "") {
     // code...
     $response = "CON Holy Spirit:\n";
     $response .= "1. Fruits \n";
-    $response .= "2. Gifts \n";
+    $response .= "2. Gifts";
+
 } else {
     
 // Step 2: Connect to the database
-include 'config.php';
+
 try {
+    include 'config.php';
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -48,9 +50,13 @@ try {
 }
     catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
+    $response = "END Error occurred";
     }
 }
 
 // Close the connection
 $pdo = null;
+
+echo $response;
+
 ?>
