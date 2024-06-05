@@ -24,7 +24,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Step 2: Prepare the SQL statement
-    $sql = "SELECT id, attribute FROM holy_spirit WHERE category = :category";
+    $sql = "SELECT id, attribute FROM attributes WHERE category = :category";
     $stmt = $pdo->prepare($sql);
 
     // Step 3: Bind parameters
