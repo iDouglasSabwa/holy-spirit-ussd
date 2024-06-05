@@ -13,7 +13,7 @@ $text = $_POST['text'];
 if ($text == "") {
     // code...
     $response = "CON Holy Spirit:\n";
-    $response .= "1. Fruits \n";
+    $response .= "1. Fruits\n";
     $response .= "2. Gifts";
 
 } else {
@@ -26,7 +26,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Step 2: Prepare the SQL statement
-    $sql = "SELECT id, attribute FROM attributes WHERE category = :category";
+    $sql = "SELECT id, attribute FROM attributes WHERE category = :category LIMIT 1";
     $stmt = $pdo->prepare($sql);
 
     // Step 3: Bind parameters
@@ -45,7 +45,7 @@ try {
         $number = 1;
 
         //Display responses from db
-       $response .= $number++ . ". $attribute\n";
+       $response .="END Result:\n$number++$attribute\n'";
     } 
 }
     catch (PDOException $e) {
