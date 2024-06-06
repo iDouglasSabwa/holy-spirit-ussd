@@ -45,7 +45,8 @@ try {
         $number = 1;
 
         //Display responses from db
-       $response .="END Result:\n$number++$attribute\n'";
+       $response ="CON Here we go:\n";
+       $response .= $number++'.'$attribute\n;
     } 
 }
     catch (PDOException $e) {
