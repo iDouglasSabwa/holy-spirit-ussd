@@ -36,18 +36,19 @@ try {
     // Step 4: Execute the statement
     $stmt->execute();
 
+    //Default menu on second layer
     $response ="CON Here we go:\n";
+
+   //Set default number value for the menu
+    $number = 1;
 
     // Step 5: Fetch the results
     foreach ($stmt as $key => $value) {
         // code...
         $id = $value['id'];
-        $attribute = $value['attribute'];
-        //Set default number value
-        $number = 1;
-
-        //Display responses from db
-       
+        $attribute = $value['attribute'];   
+        
+        //Display responses from db       
        $response .= $number++ . ". $attribute\n";
     } 
 }
