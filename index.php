@@ -36,6 +36,8 @@ try {
     // Step 4: Execute the statement
     $stmt->execute();
 
+    $response ="CON Here we go:\n";
+
     // Step 5: Fetch the results
     foreach ($stmt as $key => $value) {
         // code...
@@ -45,7 +47,7 @@ try {
         $number = 1;
 
         //Display responses from db
-       $response ="CON Here we go:\n";
+       
        $response .= $number++ . ". $attribute\n";
     } 
 }
