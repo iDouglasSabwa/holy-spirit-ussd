@@ -60,9 +60,10 @@ try {
         
         //Display responses from db       
        $response .= $number++ . ". $attribute\n";
+
     } 
 
-    // $response = "0: Main Menu";
+    $response .= "0: Main Menu";
 
 }
     catch (PDOException $e) {
