@@ -19,7 +19,6 @@ if ($text == "") {
 } else {
     
 // Step 2: Connect to the database
-
 try {
     include 'config.php';
     $pdo = new PDO($dsn, $username, $password);
@@ -29,7 +28,7 @@ try {
     $sql = "SELECT id, attribute FROM attributes WHERE category = :category";
     $stmt = $pdo->prepare($sql);
 
-    // Step 3: Bind parameters
+    // Step 3: Match category based on input
     if ($text == "1") {
         // code...
         $choice = 'fruit';
@@ -39,7 +38,8 @@ try {
     } else {
         $response ="END Invalid input\n";
     }
-    
+
+    // Step 4: Bind parameters    
     $category = $choice;
     $stmt->bindParam(':category', $category, PDO::PARAM_STR);
 
@@ -59,16 +59,14 @@ try {
         $attribute = $value['attribute'];   
         
         //Display responses from db       
-       $response .= $number++ . ". $attribute\n";
+        $response .= $number++ . ". $attribute\n";
 
     } 
 
-    $response .= "0: Main Menu";
-
 }
     catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-    $response = "END Error occurred";
+        echo "Error: " . $e->getMessage();
+        $response = "END Error occurred";
     }
 }
 
