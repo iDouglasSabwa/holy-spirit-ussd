@@ -30,27 +30,40 @@ try {
     $stmt = $pdo->prepare($sql);
 
     // Step 3: Bind parameters
-    $category = $text;
+    if ($text == "1") {
+        // code...
+        $choice = 'fruit';
+    } elseif ($text == "2") {
+        // code...
+        $choice = 'gift';
+    } else {
+        $response ="END Invalid input\n";
+    }
+    
+    $category = $choice;
     $stmt->bindParam(':category', $category, PDO::PARAM_STR);
 
     // Step 4: Execute the statement
     $stmt->execute();
 
-    //Default menu on second layer
+    // Default menu on second layer
     $response ="CON Here we go:\n";
 
-   //Set default number value for the menu
+   // Set default number value for the menu
     $number = 1;
 
     // Step 5: Fetch the results
     foreach ($stmt as $key => $value) {
-        // code...
+
         $id = $value['id'];
         $attribute = $value['attribute'];   
         
         //Display responses from db       
        $response .= $number++ . ". $attribute\n";
     } 
+
+    // $response = "0: Main Menu";
+
 }
     catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
