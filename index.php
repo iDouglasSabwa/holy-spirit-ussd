@@ -12,7 +12,7 @@ $text = $_POST['text'];
 //Display default menu
 if ($text == "") {
     // code...
-    $response = "CON Holy Spirit:\n";
+    $response = "CON Holy Spirit Attributes:\n";
     $response .= "1. Fruits\n";
     $response .= "2. Gifts";
 
