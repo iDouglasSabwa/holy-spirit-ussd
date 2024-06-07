@@ -55,12 +55,10 @@ try {
     // Step 5: Fetch the results
     foreach ($stmt as $key => $value) {
 
-        $id = $value['id'];
         $attribute = $value['attribute'];   
         
         //Display responses from db       
         $response .= $number++ . ". $attribute\n";
-
     } 
 
 }
