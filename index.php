@@ -43,10 +43,10 @@ try {
     // Step 4: Execute the statement
     $stmt->execute();
 
-    // Default menu on second layer
+    // Menu items after user input
     $response ="CON Here we go\n";
 
-   // Set default number value for the menu
+   // Set default number value for the menu items
     $number = 1;
 
     // Step 5: Fetch the results
