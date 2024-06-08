@@ -12,7 +12,7 @@ $text = $_POST['text'];
 //Display default menu
 if ($text == "") {
     // code...
-    $response = "CON Holy Spirit Attributes:\n";
+    $response = "CON Holy Spirit attributes:\n";
     $response .= "1. Fruits\n";
     $response .= "2. Gifts";
 
@@ -35,19 +35,16 @@ try {
     } elseif ($text == "2") {
         // code...
         $choice = 'gift';
-    } else {
-        $response ="END Invalid input\n";
     }
 
     // Step 4: Bind parameters    
-    $category = $choice;
-    $stmt->bindParam(':category', $category, PDO::PARAM_STR);
+    $stmt->bindParam(':category', $choice, PDO::PARAM_STR);
 
     // Step 4: Execute the statement
     $stmt->execute();
 
     // Default menu on second layer
-    $response ="CON Here we go:\n";
+    $response ="CON Here we go\n";
 
    // Set default number value for the menu
     $number = 1;
